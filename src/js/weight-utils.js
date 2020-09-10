@@ -1,14 +1,15 @@
 
 const barbell = 20;
 
-const defaultAvailablePlates = [
-    { weight: 0.5, count: 2 },
-    { weight: 1.25, count: 2 },
-    { weight: 2.5, count: 2 },
-    { weight: 5, count: 2 },
-    { weight: 10, count: 2 },
-    { weight: 15, count: 2 },
-    { weight: 20, count: 2 }
+export const defaultAvailablePlates = [
+    { weight: 0.5 },
+    { weight: 1.25 },
+    { weight: 2.5 },
+    { weight: 5 },
+    { weight: 10 },
+    { weight: 15 },
+    { weight: 20 },
+    { weight: 25 }
 ];
 
 function clamp(value, max, min = 0) {
@@ -16,7 +17,7 @@ function clamp(value, max, min = 0) {
     return Math.max(clampedMin, min);
 }
 
-export function calcPlates(weight, limitPlates = true, availablePlates = defaultAvailablePlates) {
+export function getPlates(weight, availablePlates = defaultAvailablePlates) {
     let remainingWeight = weight - barbell;
     let plateIndex = availablePlates.length - 1;
 
@@ -31,7 +32,7 @@ export function calcPlates(weight, limitPlates = true, availablePlates = default
         const pairCount = Math.floor(remainingWeight / (weight * 2));
 
         let plateCount = pairCount * 2;
-        if(limitPlates) plateCount = clamp(plateCount, availablePlates[plateIndex].count);
+        if(availablePlates[plateIndex].count <= 0) plateCount = clamp(plateCount, availablePlates[plateIndex].count);
         
         remainingWeight -= plateCount * weight;
 
@@ -51,12 +52,11 @@ export function calcPlates(weight, limitPlates = true, availablePlates = default
 }
 
 export function getNextIncrement(weight) {
-
     let search = weight;
     let next = weight;
 
     while(next <= weight) {
-        next = calcPlates(search).closestWeight;
+        next = getPlates(search).closestWeight;
         search++;
     }
 

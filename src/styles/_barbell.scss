@@ -1,15 +1,12 @@
-$scale: 1;
-
 .barbell {
-    height: 40px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 %barbell__side {
-    width: 42px * $scale;
-    height: 5px * $scale;
+    width: 20%;
     display: flex;
     align-items: center;
     background: black;
@@ -27,15 +24,12 @@ $scale: 1;
 }
 
 .barbell__bar {
-    width: 131px * $scale;
-    height: 2.8px * $scale;
+    width: 60%;
     background: black;
     border: 1px solid black;
 }
 
 .barbell__plate {
-    width: 7.2px;
-    height: 40px;
     background: black;
     border: 1px solid black;
 }

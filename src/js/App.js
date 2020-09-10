@@ -8,13 +8,21 @@ import Barbell from './Barbell';
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            weightInfo: null
+        };
+    }
+
     render() {
         return (
             <div className="container">
                 <h1 className="title">BarbellVis</h1>
 
                 <div className="main">
-                    <Barbell totalWeight={98.5} color="gray"/>
+                    <Barbell totalWeight={108.5} color="silver"/>
                 </div>
             </div>
         );

@@ -7,6 +7,12 @@ export default class Plate extends Component {
 
         this.plateOptions = [
             {
+                weight: 25,
+                width: 7.2,
+                height: 40,
+                background: 'red'
+            },
+            {
                 weight: 20,
                 width: 7.2,
                 height: 40,
@@ -54,8 +60,8 @@ export default class Plate extends Component {
     render() {
         const plate = this.plateOptions.find(option => option.weight === this.props.weight);
         const weightStyle = {
-            width: `${plate.width}px`,
-            height: `${plate.height}px`,
+            width: `${plate.width * this.props.sizeMultiplier}px`,
+            height: `${plate.height * this.props.sizeMultiplier}px`,
             background: plate.background
         };
 
