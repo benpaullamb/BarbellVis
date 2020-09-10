@@ -1,0 +1,41 @@
+$scale: 1;
+
+.barbell {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%barbell__side {
+    width: 42px * $scale;
+    height: 5px * $scale;
+    display: flex;
+    align-items: center;
+    background: black;
+    border: 1px solid black;
+}
+
+.barbell__left {
+    @extend %barbell__side;
+    justify-content: flex-end;
+}
+
+.barbell__right {
+    @extend %barbell__side;
+    justify-content: flex-start;
+}
+
+.barbell__bar {
+    width: 131px * $scale;
+    height: 2.8px * $scale;
+    background: black;
+    border: 1px solid black;
+}
+
+.barbell__plate {
+    width: 7.2px;
+    height: 40px;
+    background: black;
+    border: 1px solid black;
+}

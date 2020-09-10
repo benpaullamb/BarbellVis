@@ -1,0 +1,27 @@
+@use './barbell';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+html, body, #root, .container {
+    height: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.title {
+    padding: 16px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
